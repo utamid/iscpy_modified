@@ -365,7 +365,10 @@ def ContentToWrite(isc_dict, num_tab, content, tokens):
         else:
             for tab in range (0, num_tab):
                 s += "\t"
-            s += key + " " + str(val) + ";\n"
+            if "True" in str(val):
+                s += key + ";\n"
+            else:
+                s += key + " " + str(val) + ";\n"
             content.append(s)
             s = ''
     if num_tab == 0:
